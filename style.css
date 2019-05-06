@@ -132,3 +132,10 @@ footer {
     margin-top: 20px;
     bottom: 0;
 }
+.twit{
+ width: 500px;
+    height: 50px;
+    margin: 20px;
+    background-color: white;
+    padding-bottom: 20px;
+}

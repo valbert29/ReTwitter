@@ -32,7 +32,6 @@ if(isset($_GET["register"])){
         $birth=htmlspecialchars($_GET['birth']);
         $password=htmlspecialchars($_GET['password']);
         $query=pg_query($con,"SELECT * FROM user_t WHERE login='".$login."'");
-        if(!$query)echo 'durea';
         $numrows=pg_numrows($query);
         if($numrows==0)
         {

@@ -1,7 +1,4 @@
-<!--<div id="welcome">
-    <h2>Добро пожаловать, <span> USER </span></h2>!
-    <p><a href="logout.php">Выйти</a> из системы</p>
-</div>-->
+
 <?php
 
 session_start();
@@ -14,6 +11,7 @@ else:
     <?php include("includes/header.php"); ?>
     <div id="welcome">
         <h2>Добро пожаловать, <span><?php echo $_SESSION['session_login'];?>! </span></h2>
+        <p>Перейти в <a href="account.php">профиль</a></p>
         <p><a href="logout.php">Выйти</a> из системы</p>
     </div>
 
