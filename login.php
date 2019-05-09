@@ -19,11 +19,6 @@
 session_start();
 
 
-if (isset($_SESSION["session_login"])) {
-    // вывод "Session is set"; // в целях проверки
-    header("Location: intropage.php");
-}
-
 
 if(isset($_GET["login"])){
 
@@ -46,7 +41,7 @@ if(isset($_GET["login"])){
                 //  session_start();
                 $_SESSION['session_login']=$login;
                 /* Перенаправление браузера */
-                header("Location: intropage.php");
+                header("Location: account.php");
             }
         } else {
             //  $message = "Invalid login or password!";

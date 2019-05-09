@@ -1,7 +1,8 @@
 body {
-    background: #efefef;
+    background: white;
     font-family: 'Open Sans', sans-serif;
-    color: #777;
+    width: 100%;
+
 }
 
 a {
@@ -47,9 +48,9 @@ span {
     width: 350px;
     height: auto;
     background: #fff;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
 }
 
 #welcome {
@@ -57,9 +58,9 @@ span {
     padding: 30px;
     background: #fff;
     margin: 160px auto 0;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
 }
 
 .container h1 {
@@ -81,7 +82,7 @@ span {
     padding-bottom: 15px;
 }
 
-.container form .input,.container input[type=text],.container input[type=password],.container input[type=e] {
+.container form .input, .container input[type=text], .container input[type=password], .container input[type=e] {
     background: #fbfbfb;
     font-size: 24px;
     line-height: 1;
@@ -102,27 +103,28 @@ span {
 /*= КНОПКИ
 --------------------------------------------------------*/
 
-.button{
+.button {
     border: solid 1px #6b8dda;
     background: #59f4f7;
     /*background: -webkit-gradient(linear, left top, leftbottom, from(#faa51a), to(#f47a20));*/
     background: -moz-linear-gradient(top, #6dcdfa, #62bcf4);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
     color: #fff;
     padding: 7px 12px;
-    -webkit-border-radius:4px;
-    moz-border-radius:4px;
-    border-radius:4px;
+    -webkit-border-radius: 4px;
+    moz-border-radius: 4px;
+    border-radius: 4px;
     float: right;
     cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
     background: #60d9f4;
     /*background: -webkit-gradient(linear, left top, leftbottom, from(#f88e11), to(#f06015));*/
     background: -moz-linear-gradient(top, #59f8cd, #1ca7f0);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
 }
+
 /*= ПОДВАЛ
 --------------------------------------------------------*/
 footer {
@@ -132,63 +134,125 @@ footer {
     margin-top: 20px;
     bottom: 0;
 }
-.twit{
- width: 500px;
-    height: 50px;
-    margin: 20px;
-    background-color: white;
-    padding-bottom: 20px;
-}
-blockquote.twitter-tweet {
-    display: inline-block;
-    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 16px;
-    border-color: #eee #ddd #bbb;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    margin: 10px 5px;
-    padding: 0 16px 16px 16px;
-    max-width: 468px;
+
+body {
+    font-family: Arial, sans-serif;
+    color: #292f33;
 }
 
-blockquote.twitter-tweet p {
-    font-size: 16px;
-    font-weight: normal;
+/* This element would be replaced by where you want the templates. */
+.tweetEntry-tweetHolder {
+    border-left: 1px solid #e1e8ed;
+    border-right: 1px solid #e1e8ed;
+    border-top: 1px solid #e1e8ed;
+    width: 588px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+/* The action list is optional. */
+.tweetEntry-action-list {
+    display: block;
+    line-height: 18px;
+    margin-left: 58px;
+    margin-top: 10px;
+    color: darkgray;
+}
+
+.fa-reply:hover {
+    color: #292f33;
+}
+
+.fa-retweet:hover {
+    color: #5cd65c;
+}
+
+.fa-heart:hover {
+    color: #ff3333;
+}
+
+/************************/
+
+.tweetEntry {
+    border-bottom: 1px solid #e1e8ed;
+    cursor: pointer;
+    min-height: 51px;
+    padding: 9px 12px;
+}
+
+.tweetEntry-content {
+    display: block;
+    font-size: 14px;
+    margin-left: 58px;
+    font-size: 14px;
+}
+
+.tweetEntry-account-group {
+    color: #8899a6;
+    padding: 0px;
+    text-decoration: none;
     line-height: 20px;
 }
 
-blockquote.twitter-tweet a {
-    color: inherit;
-    font-weight: normal;
-    text-decoration: none;
-    outline: 0 none;
+.tweetEntry-avatar {
+    float: left;
+    height: 48px;
+    width: 48px;
+    margin-left: -58px;
+    border-radius: 5px;
 }
 
-blockquote.twitter-tweet a:hover,
-blockquote.twitter-tweet a:focus {
-    text-decoration: underline;
+.tweetEntry-fullname {
+    font-weight: bold;
+    font-size: 14px;
+    color: #292f33;
+    padding: 0px;
 }
 
-.commnets-area{ padding: 30px 40px; margin: 30px 0; overflow: hidden; box-shadow: 0px 0px 5px rgba(0,0,0,.1);
-    background: #fff; }
+.tweetEntry-username {
+    font-weight: bold;
+    font-size: 14px;
+    color: #b1bbc3;
+    padding: 0px;
+}
 
-.comment{ padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid #eee; }
+.tweetEntry-timestamp {
+    font-size: 14px;
+    color: #b1bbc3;
+    padding: 0px;
+}
 
-.comment:last-child{ padding-bottom: 0px; margin-bottom: 0px; border-bottom: 0px; }
+.tweetEntry-text-container {
+    font-size: 14px;
+    color: #292f33;
+    line-height: 18px;
+}
 
-.comment .reply-for{ margin-bottom: 20px; }
+.optionalMedia {
+    margin-left: 58px;
+    margin-top: 10px;
+}
 
-.comment .post-info{ position: relative; padding: 30px 0; }
+.optionalMedia-img {
+    border-radius: 5px;
+    max-width: 506px;
+    max-height: 506px;
 
-.comment .post-info .left-area{ height: 70px; width: 70px; border-radius: 100px; overflow: hidden; position: absolute;
-    top: 50%; margin-top: -35px; border: 6px	solid #fff; box-shadow: 0px 0px 5px rgba(0,0,0,.3); }
+}
 
-.comment .post-info .middle-area{ padding-left: 90px; width: calc(100% - 70px); display: inline-block; }
+.navbar {
+    border-bottom: 1px gray;
+}
 
-.comment .post-info .date{ display: inline-block; color: #999; }
+.inputTweet {
+    width: 92%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
 
-.comment .post-info .right-area{ float: right; }
+.imageHeader {
+    height: 320px;
+    width: 100%;
+    background-image: url("img/роп.jpeg");
+    border: 1px black;
+}

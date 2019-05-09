@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+
     <div class="container mregister">
         <div id="login">
             <h1>Регистрация</h1>
@@ -13,6 +14,9 @@
                         <input class="input" name="birth" size="32" value="" type="date"></label></p>
                 <p><label for="user_password">Пароль<br>
                         <input class="input" name="password" type="password" size="32" value=""></label></p>
+                <p><label for="user_foto">Пароль<br>
+                        <input type='file' name='myfile'></label></p>
+
                 <p class="submit"><input class="button" id="register" name="register" type="submit"
                                          value="Зарегистрироваться"></p>
                 <p class="regtext">Уже зарегистрированы? <a href="login.php">Введите имя пользователя</a>!</p>
