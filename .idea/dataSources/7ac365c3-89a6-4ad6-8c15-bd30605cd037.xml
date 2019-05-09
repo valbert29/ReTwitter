@@ -64,7 +64,7 @@
       <ObjectId>188569</ObjectId>
       <StateNumber>363254</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>363599</IntrospectionStateNumber>
+      <IntrospectionStateNumber>363706</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|196761|196763|1
@@ -145,7 +145,7 @@ sequence|table|204989|204991|1
       <Comment>standard public schema</Comment>
       <StateNumber>562</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>363600</IntrospectionStateNumber>
+      <IntrospectionStateNumber>363707</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -336,10 +336,10 @@ sequence|table|204989|204991|1
       <StateNumber>363309</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="55" parent="37" name="phoho">
+    <column id="55" parent="37" name="photo">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>363304</StateNumber>
+      <StateNumber>363705</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="56" parent="37" name="page_photo">

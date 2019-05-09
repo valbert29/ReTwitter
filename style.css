@@ -1,5 +1,5 @@
 body {
-    background: white;
+    background: #eeeeee;
     font-family: 'Open Sans', sans-serif;
     width: 100%;
 
@@ -142,6 +142,7 @@ body {
 
 /* This element would be replaced by where you want the templates. */
 .tweetEntry-tweetHolder {
+    background: white;
     border-left: 1px solid #e1e8ed;
     border-right: 1px solid #e1e8ed;
     border-top: 1px solid #e1e8ed;
@@ -240,9 +241,7 @@ body {
 
 }
 
-.navbar {
-    border-bottom: 1px gray;
-}
+
 
 .inputTweet {
     width: 92%;
@@ -250,9 +249,15 @@ body {
     margin-top: 10px;
 }
 
-.imageHeader {
-    height: 320px;
-    width: 100%;
-    background-image: url("img/роп.jpeg");
-    border: 1px black;
+.img-circular{
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+
+    background-size: cover;
+    display: block;
 }

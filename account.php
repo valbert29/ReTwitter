@@ -1,5 +1,9 @@
 <?php include("includes/header.php"); ?>
 <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="windowInfo" style="float:left">
+    <div class="img-circular"></div>
+
+</div>
 <div class="tweetEntry-tweetHolder">
     <div>
         <form action="account.php" class="tweetEntry" method="get">
@@ -14,10 +18,19 @@
     </div>
 </div>
 <?php
+require_once("includes/connection.php");
+session_start();
+$login = $_SESSION['session_login'];
 
-if (isset($_SESSION['session_login'])) {
-    header("Location:login.php");
-}
+//находим айдишник зашедшего пользователя
+$result = pg_query($con, "SELECT * FROM user_t WHERE login='" . $login . "'");
+$arr = pg_fetch_array($result, 0, PGSQL_NUM);
+$user_id = $arr[0];
+$login = $arr[1];
+$birth = $arr[5];
+$fullname = $arr[2] . $arr[3];
+$photo = $arr[7];
+
 if (!isset($_GET["account"])) { //Альбертик измени чтоб работало без !
     if (!empty($_GET['tweet'])) {
         $tweet = htmlspecialchars($_GET['tweet']);
@@ -28,14 +41,10 @@ if (!isset($_GET["account"])) { //Альбертик измени чтоб ра�
     }
 
 };
-
-require 'includes/connection.php';
-session_start();
-$login = $_SESSION['session_login'];
-//находим айдишник зашедшего пользователя
-$result = pg_query($con, "SELECT id FROM user_t WHERE login='" . $login . "'");
-$arr = pg_fetch_array($result, 0, PGSQL_NUM);
-$user_id = $arr[0];
+print '<script type="text/javascript">
+var image=document.getElementsByClassName("img-circular");
+image[0].style.backgroundImage="url(\'img/'.$photo.'\')";
+</script>';
 //выводим все его твиты
 $alltweets = pg_query($con,
     "SELECT tweet.id,name,surname,login,date,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
@@ -43,7 +52,6 @@ $arr = [];
 if (!empty($_GET["tweet_id"])) {
     $tweet_id = htmlspecialchars($_GET['tweet_id']);
     $insert_like = pg_query($con, "INSERT into tweet_like(tweet_id, user_id) values ('$tweet_id','$user_id')");
-}else{
 }
 $numrows = pg_num_rows($alltweets);
 if ($numrows != 0) {
@@ -82,7 +90,7 @@ if ($numrows != 0) {
   
         divAction.innerHTML=\' <i class="fa fa-reply" style="width: 80px;"></i>\' +
          \'<i class="fa fa-retweet" style="width: 80px"></i>\' +
-         \'<i class="fa fa-heart" style="width: 80px">'.$count.'</i>\'; 
+         \'<i class="fa fa-heart" style="width: 80px">' . $count . '</i>\'; 
 
         tweetEntry.className=\'tweetEntry\';
         tweetEntry_content.className=\'tweetEntry-content\';
@@ -99,7 +107,7 @@ if ($numrows != 0) {
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
-                e.target.parentNode.parentElement.getElementsByClassName("fa fa-heart")[0].innerText='.$count.';
+                e.target.parentNode.parentElement.getElementsByClassName("fa fa-heart")[0].innerText=' . $count . ';
                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_id="+tweet_id;
           };
         }
