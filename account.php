@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+<?php include("includes/footer.php"); ?>
 <?php
 require_once("includes/connection.php");
 session_start();

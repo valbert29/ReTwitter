@@ -1,6 +1,5 @@
 <?php include("includes/header.php"); ?>
 <body class="profile-page sidebar-collapse">
-<?php include("includes/navbarMain.php"); ?>
 <div class="page-header page-header-xs" data-parallax="true"
      style="background-image: url('assets/img/fabio-mangione.jpg'); min-height: 14vh !important;">
     <div class="filter"></div>
@@ -26,48 +25,52 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane text-center" id="following" role="tabpanel">
-                <h3 class="text-muted">Not following anyone yet :(</h3>
-                <button class="btn btn-warning btn-round">Find artists</button>
-            </div>
         </div>
     </div>
 </div>
+<?php include("includes/navbarMain.php"); ?>
 <?php include("includes/footer.php"); ?>
 <?php
 require_once("includes/connection.php");
 session_start();
-$user = $_SESSION['session_login'];
-$findUser = pg_query($con, "SELECT id FROM user_t WHERE login='" . $user . "'");
-$findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
-$user_id = $findUser[0];
-//выводим все его твиты
-$alltweets = pg_query($con,
-    "SELECT * FROM tweet JOIN user_t ON tweet.author = user_t.id");
-$alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
-$arr = [];
+$login=$_SESSION['session_login'];
 
-foreach ($alltweets as $alltweet) {
-    $alltweet = implode(",", $alltweet);
-    array_push($arr, $alltweet);
-}
+$user_id = pg_query($con,
+    "SELECT id FROM user_t WHERE login='$login'");
+$user_id = pg_fetch_all($user_id, PGSQL_NUM);
+$user_id=$user_id[0][0];
+
+$all_tweets_id_follower=pg_query($con,"SELECT user_id FROM followers WHERE follower_id='$user_id'");
+$all_tweets_id_follower = pg_fetch_all($all_tweets_id_follower, PGSQL_NUM);
+
+$arr = [];
 if (!empty($_GET["tweet_id"])) {
     $tweet_id_insert = htmlspecialchars($_GET['tweet_id']);
     $insert_like = pg_query($con, "INSERT into tweet_like(tweet_id, user_id) values ('$tweet_id_insert','$user_id')");
 }
-for ($i = count($arr)-1; $i >= 0; $i--) {
-    $infAboutIwit = explode(",", $arr[$i]);
-    $tweet_id = $infAboutIwit[0];
-    $user_id=$infAboutIwit[1];
+foreach ($all_tweets_id_follower as $alltweet) {
+    foreach ($alltweet as $item){
+        $alltweets = pg_query($con,
+            "SELECT * FROM tweet JOIN user_t ON tweet.author = user_t.id AND user_t.id='$item'");
+        $alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
+        $arr = [];
 
-    $text = $infAboutIwit[2];
-    $dateCreatetweet = $infAboutIwit[3];
-    $fullname = $infAboutIwit[6] . $infAboutIwit[7];
-    $login=$infAboutIwit[5];
-    $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
-    $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
-    $count = $count_like['count'];
-    print '<script type=\'text/javascript\'>
+        foreach ($alltweets as $alltweet) {
+            $alltweet = implode(",", $alltweet);
+            array_push($arr, $alltweet);
+        }
+        for ($i = 0; $i < count($arr); $i++) {
+            $infAboutIwit = explode(",", $arr[$i]);
+            $tweet_id = $infAboutIwit[0];
+            $user_id=$infAboutIwit[1];
+            $text = $infAboutIwit[2];
+            $dateCreatetweet = $infAboutIwit[3];
+            $fullname = $infAboutIwit[6] . $infAboutIwit[7];
+            $login=$infAboutIwit[5];
+            $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
+            $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
+            $count = $count_like['count'];
+            print '<script type=\'text/javascript\'>
         var mainDiv=document.getElementsByClassName("list-unstyled follows");
         
         var divCard=document.createElement(\'div\');
@@ -86,7 +89,7 @@ for ($i = count($arr)-1; $i >= 0; $i--) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
                 e.target.parentNode.parentElement.getElementsByClassName("btn btn-danger btn-round btn-sm")[0].innerText=' . $count . ';
-                location.href = "http://localhost:63342/ReTwitter/feed.php?tweet_id="+tweet_id;
+                location.href = "http://localhost:63342/ReTwitter/main.php?tweet_id="+tweet_id;
           };
         }
          for(var j = 0; j < accounts.length; j++) {
@@ -97,6 +100,8 @@ for ($i = count($arr)-1; $i >= 0; $i--) {
         }
       </script>';
 
-}
+        }
 
+    }
+}
 ?>

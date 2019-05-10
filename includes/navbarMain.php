@@ -20,7 +20,7 @@
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="nc-icon  nc-tile-56"></i><a style="color: white" href="../ReTwitter/account.php"> Мои подписки</a>
+                        <i class="nc-icon  nc-tile-56"></i><a style="color: white" href="../ReTwitter/main.php"> Мои подписки</a>
                     </button>
                 </li>
                 <li class="nav-item">
