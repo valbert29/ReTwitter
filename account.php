@@ -45,9 +45,59 @@
 <?php
 require_once("includes/connection.php");
 session_start();
-$login = $_SESSION['session_login'];
+$login=$_SESSION['session_login'];
+if (!empty($_GET["login"])) {
+    $login_add = htmlspecialchars($_GET['login']);
+    if($login!==$login_add){
+        $user=$_SESSION['session_login'];
 
-//находим айдишник зашедшего пользователя
+
+        $findUser = pg_query($con, "SELECT id FROM user_t WHERE login='" . $user . "'");
+        $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
+        $findUser = $findUser[0];
+
+        $findLogin = pg_query($con, "SELECT id FROM user_t WHERE login='" . $login . "'");
+        $findLogin = pg_fetch_array($findLogin, 0, PGSQL_NUM);
+        $findLogin=$findLogin[0];
+        $search_follower=pg_query($con,"SELECT * FROM followers where user_id='$findLogin' AND follower_id='$findUser'");
+        if(pg_num_rows($search_follower)==0) {
+            print '<script type="text/javascript">
+          var div=document.getElementsByClassName("owner");
+          var para = document.createElement("div");
+          para.innerHTML=\'<button class="btn btn-danger btn-round" onclick="addFollower()"><i class="nc-icon nc-tile-56"></i><a style="color:white" href="account.php?add_follow_user=' . $login . '">Подписаться</a></button>\';
+          var node = document.createTextNode("");
+          para.appendChild(node);
+          div[0].appendChild(para);
+        </script>';
+        }else{
+            print '<script type="text/javascript">
+          var div=document.getElementsByClassName("owner");
+          var para = document.createElement("div");
+          para.innerHTML=\'<button class="btn btn-danger btn-round" ><i class="nc-icon nc-tile-56"></i>Подписан</button>\';
+          var node = document.createTextNode("");
+          para.appendChild(node);
+          div[0].appendChild(para);
+        </script>';
+        }
+    }
+
+}
+if (!empty($_GET["add_follow_user"])) {
+    $follower = $_SESSION['session_login'];
+    $user = htmlspecialchars($_GET['add_follow_user']);
+
+    $findUser = pg_query($con, "SELECT id FROM user_t WHERE login='" . $user . "'");
+    $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
+    $findUser = $findUser[0];
+
+    $findFollower = pg_query($con, "SELECT id FROM user_t WHERE login='" . $follower . "'");
+    $findFollower = pg_fetch_array($findFollower, 0, PGSQL_NUM);
+    $findFollower=$findFollower[0];
+
+    $insert_folower = pg_query($con,
+        "INSERT into followers(user_id, follower_id) VALUES('$findUser','$findFollower'); ");
+}
+
 $result = pg_query($con, "SELECT * FROM user_t WHERE login='" . $login . "'");
 $arr = pg_fetch_array($result, 0, PGSQL_NUM);
 $user_id = $arr[0];
@@ -57,7 +107,7 @@ $fullname = $arr[2] . $arr[3];
 print '<script type="text/javascript">
 var div=document.getElementsByClassName("owner");
 var para = document.createElement("div");
-para.innerHTML=\'<h4 class="title">'.$fullname.' <br/><b>@'.$login.'</b></h4>\';
+para.innerHTML=\'<h4 class="title">' . $fullname . ' <br/><b>@' . $login . '</b></h4>\';
 var node = document.createTextNode("");
 para.className="name";
 para.appendChild(node);

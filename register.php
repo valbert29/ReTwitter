@@ -23,7 +23,7 @@
                         <button class="btn btn-danger btn-block btn-round">Зарегистрироваться</button>
                     </form>
                     <div class="forgot">
-                        <a href="#" class="btn btn-link btn-danger">Есть аккаунт? <b style="text-decoration: underline">Войти</b></a>
+                        <a href="login.php" class="btn btn-link btn-danger">Есть аккаунт? <b style="text-decoration: underline">Войти</b></a>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ if (!isset($_GET["register"])) {
             $sql = "INSERT INTO user_t(login, name, surname,password,birth_date) VALUES('$login','$name', '$surname', '$password','$birth')";
             $result = pg_query($con, $sql);
             if($result){
-                header("location:login.php");
+
             }
         }
     }

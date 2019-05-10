@@ -68,7 +68,7 @@ for ($i = 0; $i < count($arr); $i++) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button></div>\';
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     
@@ -76,12 +76,18 @@ for ($i = 0; $i < count($arr); $i++) {
         mainDiv[0].appendChild(li);
 
         var like =document.getElementsByClassName(\'btn btn-danger btn-round btn-sm\');
-        
+        var accounts=document.getElementsByClassName("img-circle img-no-padding img-responsive");
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
                 e.target.parentNode.parentElement.getElementsByClassName("btn btn-danger btn-round btn-sm")[0].innerText=' . $count . ';
                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_id="+tweet_id;
+          };
+        }
+         for(var j = 0; j < accounts.length; j++) {
+          accounts[j].onclick=function(e) {
+          let login=e.target.parentNode.parentElement.getElementsByClassName("card-title")[0].innerText;
+                location.href = "http://localhost:63342/ReTwitter/account.php?login="+login;
           };
         }
       </script>';

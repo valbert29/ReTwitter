@@ -17,7 +17,7 @@
                         <button class="btn btn-danger btn-block btn-round">Войти</button>
                     </form>
                     <div class="forgot">
-                        <a href="#" class="btn btn-link btn-danger">Нет аккаунта? <b style="text-decoration: underline">Зарегистрироваться</b></a>
+                        <a href="register.php" class="btn btn-link btn-danger">Нет аккаунта? <b style="text-decoration: underline">Зарегистрироваться</b></a>
                     </div>
                 </div>
             </div>
