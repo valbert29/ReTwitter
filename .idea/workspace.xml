@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61cda62f-e004-462e-bf64-393a0f43e000" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037/storage_v2/_src_/database/twitter.c6phyQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037/storage_v2/_src_/database/twitter.c6phyQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/feed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5dfe981827a52329f4bf9e0fad48e45d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/роп.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/navbarMain.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/navbarMain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+            <state relative-caret-position="326">
+              <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -348,12 +339,12 @@
       <workItem from="1557307582502" duration="19200000" />
       <workItem from="1557356562292" duration="3772000" />
       <workItem from="1557404953955" duration="20225000" />
-      <workItem from="1557438334330" duration="15634000" />
+      <workItem from="1557438334330" duration="16183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85366000" />
+    <option name="totallyTimeSpent" value="85915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -566,13 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/user_t">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/followers">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -583,10 +567,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/user_t">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+        <state relative-caret-position="326">
+          <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
         </state>
       </provider>
     </entry>
