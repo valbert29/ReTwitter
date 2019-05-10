@@ -1,20 +1,45 @@
 <?php include("includes/header.php"); ?>
-<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-<div class="windowInfo" style="float:left">
-    <div class="img-circular"></div>
-
+<body class="profile-page sidebar-collapse">
+<!-- Navbar -->
+<?php include("includes/navbarMain.php"); ?>
+<!-- End Navbar -->
+<div class="page-header page-header-xs" data-parallax="true"
+     style="background-image: url('assets/img/fabio-mangione.jpg');">
+    <div class="filter"></div>
 </div>
-<div class="tweetEntry-tweetHolder">
-    <div>
-        <form action="account.php" class="tweetEntry" method="get">
-            <img src="img/5dfe981827a52329f4bf9e0fad48e45d.png" style="width: 25px;height: 25px;margin-left: 20px">
-            <input class="button" style="margin-left: 20px" type="submit" value="Send">
-            <label for="tweet">What's happening?
-                <textarea name="tweet" class="inputTweet"></textarea>
-            </label>
-        </form>
-    </div>
-    <div class="tweetEntry-tweetHolder">
+<div class="section profile-content">
+    <div class="container">
+        <div class="owner">
+            <div class="avatar">
+                <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
+                     class="img-circle img-no-padding img-responsive">
+            </div>
+        </div>
+        <br/>
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Лента</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content following">
+            <div class="tab-pane active" id="follows" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <ul class="list-unstyled follows">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane text-center" id="following" role="tabpanel">
+                <h3 class="text-muted">Not following anyone yet :(</h3>
+                <button class="btn btn-warning btn-round">Find artists</button>
+            </div>
+        </div>
     </div>
 </div>
 <?php
@@ -27,11 +52,19 @@ $result = pg_query($con, "SELECT * FROM user_t WHERE login='" . $login . "'");
 $arr = pg_fetch_array($result, 0, PGSQL_NUM);
 $user_id = $arr[0];
 $login = $arr[1];
-$birth = $arr[5];
 $fullname = $arr[2] . $arr[3];
-$photo = $arr[7];
 
-if (!isset($_GET["account"])) { //Альбертик измени чтоб работало без !
+print '<script type="text/javascript">
+var div=document.getElementsByClassName("owner");
+var para = document.createElement("div");
+para.innerHTML=\'<h4 class="title">'.$fullname.' <br/><b>@'.$login.'</b></h4>\';
+var node = document.createTextNode("");
+para.className="name";
+para.appendChild(node);
+div[0].appendChild(para);
+</script>';
+
+if (!isset($_GET["account"])) {
     if (!empty($_GET['tweet'])) {
         $tweet = htmlspecialchars($_GET['tweet']);
         $date = date('d-m-y');
@@ -41,10 +74,6 @@ if (!isset($_GET["account"])) { //Альбертик измени чтоб ра�
     }
 
 };
-print '<script type="text/javascript">
-var image=document.getElementsByClassName("img-circular");
-image[0].style.backgroundImage="url(\'img/'.$photo.'\')";
-</script>';
 //выводим все его твиты
 $alltweets = pg_query($con,
     "SELECT tweet.id,name,surname,login,date,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
@@ -72,42 +101,24 @@ if ($numrows != 0) {
         $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
         $count = $count_like['count'];
         print '<script type=\'text/javascript\'>
-        var tweetEntry_tweetHolder=document.getElementsByClassName("tweetEntry-tweetHolder");
+        var mainDiv=document.getElementsByClassName("list-unstyled follows");
         
-        
-        var tweetEntry=document.createElement(\'div\');
-        var tweetEntry_content=document.createElement(\'div\');
-        var divAction=document.createElement(\'div\');
-       
+        var divCard=document.createElement(\'div\');
+        var li=document.createElement(\'li\');
       
-        
-        tweetEntry_content.innerHTML=\'<a class="tweetEntry-account-group" href="[userURL]">\' +
-         \'<img class="tweetEntry-avatar" src="https://img.tsn.ua/cached/1518092914/tsn-e596772b039de3f9cc99cecfb6e26c38/thumbs/315x210/85/a1/bf4178308ac255c99f6aa164121fa185.jpg">\' +
-         \'<strong class="tweetEntry-fullname"> ' . $fullname . '</strong>\' +
-         \'<span class="tweetEntry-username"> @<b>' . $nameUser . '</b></span>\' +
-         \'<span class="tweetEntry-timestamp">-   ' . $dateCreatetweet . '</span></a>\' +
-         \'<div class="tweetEntry-text-container">' . $text . '</div>\';
-  
-        divAction.innerHTML=\' <i class="fa fa-reply" style="width: 80px;"></i>\' +
-         \'<i class="fa fa-retweet" style="width: 80px"></i>\' +
-         \'<i class="fa fa-heart" style="width: 80px">' . $count . '</i>\'; 
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button></div>\';
+        divCard.id=' . $tweet_id . ';
+        divCard.className=\'card\';
+    
+        li.appendChild(divCard);
+        mainDiv[0].appendChild(li);
 
-        tweetEntry.className=\'tweetEntry\';
-        tweetEntry_content.className=\'tweetEntry-content\';
-        divAction.className=\'tweetEntry-action-list\';
-
-        tweetEntry.id=' . $tweet_id . ';
-
-        tweetEntry.appendChild(tweetEntry_content);
-        tweetEntry_tweetHolder[0].appendChild(tweetEntry);
-        tweetEntry.appendChild(divAction);
-
-        var like =document.getElementsByClassName(\'fa fa-heart\');
+        var like =document.getElementsByClassName(\'btn btn-danger btn-round btn-sm\');
         
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
-                e.target.parentNode.parentElement.getElementsByClassName("fa fa-heart")[0].innerText=' . $count . ';
+                e.target.parentNode.parentElement.getElementsByClassName("btn btn-danger btn-round btn-sm")[0].innerText=' . $count . ';
                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_id="+tweet_id;
           };
         }

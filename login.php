@@ -1,19 +1,29 @@
 <?php include("includes/header.php"); ?>
-    <div class="container mlogin">
-        <div id="login">
-            <h1>Вход</h1>
-            <form action="login.php" id="loginform" method="get" name="loginform">
-                <p><label for="user_login">Имя пользователя<br>
-                        <input class="input" id="login" name="login" size="20"
-                               type="text" value=""></label></p>
-                <p><label for="user_pass">Пароль<br>
-                        <input class="input" id="password" name="password" size="20"
-                               type="password" value=""></label></p>
-                <p class="submit"><input class="button" type="submit" value="Log In"></p>
-                <p class="regtext">Еще не зарегистрированы?<a href="register.php">Регистрация</a>!</p>
-            </form>
+<body class="register-page sidebar-collapse">
+<?php include("includes/navbar.php"); ?>
+<div class="page-header" style="background-image: url('assets/img/login-image.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 ml-auto mr-auto">
+                <div class="card card-register">
+                    <h3 class="title mx-auto" style="font-weight: bold; margin-bottom: 0px;">reTwitter</h3>
+                    <h3 class="mx-auto">Вход</h3>
+                    <form class="register-form" method="get">
+                        <label>Логин</label>
+                        <input type="text" name=login class="form-control" placeholder="Логин">
+                        <label>Пароль</label>
+                        <input type="password" name=password class="form-control" placeholder="Пароль">
+                        <button class="btn btn-danger btn-block btn-round">Войти</button>
+                    </form>
+                    <div class="forgot">
+                        <a href="#" class="btn btn-link btn-danger">Нет аккаунта? <b style="text-decoration: underline">Зарегистрироваться</b></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 <?php include("includes/footer.php"); ?>
 <?php require_once("includes/connection.php");
 session_start();
