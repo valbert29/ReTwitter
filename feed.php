@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+
 <body class="profile-page sidebar-collapse">
 <?php include("includes/navbarMain.php"); ?>
 <div class="page-header page-header-xs" data-parallax="true"
@@ -16,7 +17,6 @@
                 </ul>
             </div>
         </div>
-
         <!-- Tab panes -->
         <div class="tab-content following">
             <div class="tab-pane active" id="follows" role="tabpanel">
@@ -28,13 +28,10 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane text-center" id="following" role="tabpanel">
-                <h3 class="text-muted">Not following anyone yet :(</h3>
-                <button class="btn btn-warning btn-round">Find artists</button>
-            </div>
         </div>
     </div>
 </div>
+</body>
 <?php include("includes/footer.php"); ?>
 <?php
 require_once("includes/connection.php");
@@ -57,19 +54,15 @@ if (!empty($_GET["tweet_id"])) {
     $tweet_id_insert = htmlspecialchars($_GET['tweet_id']);
     $insert_like = pg_query($con, "INSERT into tweet_like(tweet_id, user_id) values ('$tweet_id_insert','$user_id')");
 }
-if (!empty($_GET["tweet_id_retweet"])) {
-    $tweet_id_insert = htmlspecialchars($_GET['tweet_id_retweet']);
-    $insert_retweet = pg_query($con, "INSERT into tweet_retweet(tweet_id, user_id) values ('$tweet_id_insert','$user_id')");
-}
-for ($i = count($arr)-1; $i >= 0; $i--) {
+for ($i = count($arr) - 1; $i >= 0; $i--) {
     $infAboutIwit = explode(",", $arr[$i]);
     $tweet_id = $infAboutIwit[0];
-    $user_id=$infAboutIwit[1];
+    $user_id = $infAboutIwit[1];
     $text = $infAboutIwit[2];
     $dateCreatetweet = $infAboutIwit[3];
     $fullname = $infAboutIwit[6] . $infAboutIwit[7];
-    $login=$infAboutIwit[5];
-    $count_retweet=pg_query($con, "SELECT count(user_id) FROM tweet_retweet WHERE tweet_id='$tweet_id'");
+    $login = $infAboutIwit[5];
+    $count_retweet = pg_query($con, "SELECT count(user_id) FROM tweet_retweet WHERE tweet_id='$tweet_id'");
     $count_retweet = pg_fetch_array($count_retweet, null, PGSQL_ASSOC);
     $count_retweet = $count_retweet['count'];
     $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
@@ -81,7 +74,9 @@ for ($i = count($arr)-1; $i >= 0; $i--) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm like"><i class="fa fa-heart"></i> ' . $count . '</button><a href="#ex1" rel="modal:open"><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet" modal="1"><i class="fa fa-retweet" aria-hidden="true"></i>'.$count_retweet.'</button></a></div>\';
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body">\'+
+        \'<h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm like"><i class="fa fa-heart"></i> ' . $count . '</button>\'+
+        \'<button type="button" class="btn btn-danger btn-round btn-sm retweet" data-toggle="modal" data-target="#retweetModal"><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_retweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     
@@ -91,6 +86,7 @@ for ($i = count($arr)-1; $i >= 0; $i--) {
         var retweet=document.getElementsByClassName(\'btn btn-danger btn-round btn-sm retweet\');
         var like =document.getElementsByClassName(\'btn btn-danger btn-round btn-sm like\');
         var accounts=document.getElementsByClassName("img-circle img-no-padding img-responsive");
+        
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
@@ -103,12 +99,12 @@ for ($i = count($arr)-1; $i >= 0; $i--) {
                 location.href = "http://localhost:63342/ReTwitter/account.php?login="+login;
           };
           
-          /*for(let k = 0; k <retweet.length ; k++) {
+          for(let k = 0; k <retweet.length ; k++) {
             retweet[k].onclick=function(e) {
                  let tweet_id=e.target.parentNode.parentElement.id;
-                location.href = "http://localhost:63342/ReTwitter/feed.php?tweet_id_retweet="+tweet_id;
-            }
-          }*/
+                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_retweet="+tweet_id;
+          }
+        }
         }
       </script>';
 

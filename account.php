@@ -23,41 +23,44 @@ $login_add = $_SESSION['session_login'];
             <div class="nav-tabs-wrapper">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Лента</a>
+                        <a class="nav-link active" data-toggle="tab" href="#feeds" role="tab">Лента</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#follows" role="tab">Подписчики</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#following" role="tab">Подписки</a>
                     </li>
                 </ul>
             </div>
         </div>
         <!-- Tab panes -->
         <div class="tab-content following">
-            <div class="tab-pane active" id="follows" role="tabpanel">
+            <div class="tab-pane active" id="feeds" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12 ml-auto mr-auto">
-                        <ul class="list-unstyled follows">
-                            <li>
-                                <form class="card" style="width: 100%;" method="get">
-                                    <img style="margin: 25px 0px 0px 25px"
-                                         class="img-circle img-no-padding img-responsive"
-                                         src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <!--<img style="margin: 25px 0px 0px 25px" class="img-circle img-no-padding img-responsive" src="../assets/img/faces/joe-gardner-2.jpg" alt="Card image cap">-->
-                                        <h4 class="card-title" style="font-weight: bold"><?php echo $login_add?></h4>
-                                        <input class="card-text" name="tweet" placeholder="What's happening?"></input>
-                                        <button class="btn btn-danger btn-round btn-sm" type="submit">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            Твитнуть
-                                        </button>
-                                    </div>
-                                </form>
-                            </li>
+                        <ul class="list-unstyled">
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane text-center" id="following" role="tabpanel">
-                <h3 class="text-muted">Not following anyone yet :(</h3>
-                <button class="btn btn-warning btn-round">Find artists</button>
+            <div class="tab-pane text-center follows" id="follows" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <ul class="list-unstyled follows">
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="tab-pane text-center following" id="following" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <ul class="list-unstyled following">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -77,10 +80,9 @@ if (!empty($_GET["login"])) {
         $findLogin = pg_query($con, "SELECT id FROM user_t WHERE login='" . $login_add . "'");
         $findLogin = pg_fetch_array($findLogin, 0, PGSQL_NUM);
         $findLogin = $findLogin[0];
-        print $findLogin;
         $search_follower = pg_query($con,
             "SELECT * FROM followers where user_id='$findLogin' AND follower_id='$findUser'");
-        print pg_num_rows($search_follower);
+
         if (pg_num_rows($search_follower) == 0) {
             print '<script type="text/javascript">
           var div=document.getElementsByClassName("owner");
@@ -101,6 +103,99 @@ if (!empty($_GET["login"])) {
         </script>';
         }
     }
+}else{
+    print '<script type="text/javascript">
+          var mainDiv=document.getElementsByClassName("list-unstyled");
+        
+        var divCard=document.createElement(\'div\');
+        var li=document.createElement(\'li\');
+      
+        divCard.innerHTML=\'<div class="card-body">\'+
+                                        \'<form method="get" action="account.php">\'+
+                                            \'<div class="form-group">\'+
+                                                \'<label for="exampleFormControlTextarea1">У вас есть о чем рассказать?</label>\'+
+                                                \'<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>\'+
+                                            \'</div>\'+
+                                            \'<input type="submit" class="btn btn-danger btn-sm" value="Опубликовать">\'+
+                                        \'</form>\'+
+                                    \'</div>\';
+        divCard.className=\'card1\';
+    
+        li.appendChild(divCard);
+        mainDiv[0].appendChild(li);
+        </script>';
+}
+$findLogin = pg_query($con, "SELECT id FROM user_t WHERE login='" . $login_add . "'");
+$findLogin = pg_fetch_array($findLogin, 0, PGSQL_NUM);
+$findLogin = $findLogin[0];
+$search_followers = pg_query($con, "SELECT user_id FROM followers where follower_id='$findLogin'");
+$num_fol=pg_numrows($search_followers);
+$search_followers = pg_fetch_all($search_followers, PGSQL_NUM);
+
+$findSubscriber = pg_query($con, "SELECT follower_id FROM followers where user_id='$findLogin'");
+$num_sub=pg_numrows($findSubscriber);
+$findSubscriber = pg_fetch_all($findSubscriber, PGSQL_NUM);
+if ($num_sub==0) {
+    print '<script type="text/javascript">
+        var tab=document.getElementsByClassName("tab-pane text-center follows");
+        var divH=document.createElement(\'div\');
+        divH.innerHTML=\'<h3 class="text-muted">Not followers  yet :(</h3>\';
+         var node=document.createTextNode("");
+        divH.appendChild(node);
+        tab[0].appendChild(divH);
+    </script>';
+} else {
+    foreach ($findSubscriber as $item) {
+        foreach ($item as $follower) {
+            $findFollower = pg_query($con, "SELECT * FROM user_t WHERE id='" . $follower . "'");
+            $findFollower = pg_fetch_array($findFollower, 0, PGSQL_NUM);
+            $fullname_follower = $findFollower[2] . " " . $findFollower[3];
+            $login_follower = $findFollower[1];
+            print '<script type="text/javascript">
+            var tab=document.getElementsByClassName("list-unstyled follows");
+            var li=document.createElement(\'li\');
+            li.innerHTML=\'<div class="row"><div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">\' +
+            \'<img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
+            \'</div><div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto"><h6>' . $login_follower . '<br/><small>' . $fullname_follower . '</small></h6>\' +
+            \'</div></div>\';
+            var node=document.createTextNode("");
+            li.appendChild(node);
+            tab[0].appendChild(li);
+         </script>';
+        }
+    }
+
+}
+if ($num_fol==0) {
+    print '<script type="text/javascript">
+        var tab=document.getElementsByClassName("tab-pane text-center following");
+        var divH=document.createElement(\'div\');
+        divH.innerHTML=\'<h3 class="text-muted">Not following anyone yet :(</h3>\';
+         var node=document.createTextNode("");
+        divH.appendChild(node);
+        tab[0].appendChild(divH);
+    </script>';
+} else {
+    foreach ($search_followers as $item) {
+        foreach ($item as $follower) {
+            $findFollower = pg_query($con, "SELECT * FROM user_t WHERE id='" . $follower . "'");
+            $findFollower = pg_fetch_array($findFollower, 0, PGSQL_NUM);
+            $fullname_follower = $findFollower[2] . " " . $findFollower[3];
+            $login_follower = $findFollower[1];
+            print '<script type="text/javascript">
+            var tab1=document.getElementsByClassName("list-unstyled following");
+            var li=document.createElement(\'li\');
+            li.innerHTML=\'<div class="row"><div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">\' +
+            \'<img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
+            \'</div><div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto"><h6>' . $login_follower . '<br/><small>' . $fullname_follower . '</small></h6>\' +
+            \'</div></div>\';
+            var node=document.createTextNode("");
+            li.appendChild(node);
+            tab1[0].appendChild(li);
+         </script>';
+        }
+    }
+
 
 }
 if (!empty($_GET["add_follow_user"])) {
@@ -125,6 +220,14 @@ if (!empty($_GET["add_follow_user"])) {
           para.appendChild(node);
           div[0].appendChild(para);
         </script>';
+
+}
+if (!empty($_GET["tweet_retweet"])) {
+    $tweet_retweet = htmlspecialchars($_GET['tweet_retweet']);
+    $alltweets = pg_query($con,
+        "SELECT * FROM tweet WHERE id='$tweet_retweet'");
+    $alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
+     print ($alltweets);
 
 }
 
@@ -165,7 +268,6 @@ if ($numrows != 0) {
         $alltweet = implode(",", $alltweet);
         array_push($arr, $alltweet);
     }
-
     for ($i = count($arr) - 1; $i >= 0; $i--) {
         $infAboutIwit = explode(",", $arr[$i]);
         $tweet_id = $infAboutIwit[0];
@@ -178,12 +280,12 @@ if ($numrows != 0) {
         $count = $count_like['count'];
         $count_tweet = 0;
         print '<script type=\'text/javascript\'>
-        var mainDiv=document.getElementsByClassName("list-unstyled follows");
+        var mainDiv=document.getElementsByClassName("list-unstyled");
         
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"  ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     

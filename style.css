@@ -1,0 +1,32 @@
+a.add_images {
+    /*background: url(images/add_images_link.png);*/
+        /* Путь к файлу с исходным рисунком  */
+    display: block; /*  Рисунок как блочный элемент */
+    width: 250px; /* Ширина рисунка */
+    height: 50px; /*  Высота рисунка */
+    text-decoration: none;
+}
+a.add_images:hover {
+    /*background: url(images/add_images_hover.png);*/
+        /* Путь к файлу с заменяемым рисунком  */
+}
+.add_images_text
+{
+    color: green;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-top: 15px;
+}
+.input
+{
+    border: 1px solid green;
+}
+.label
+{
+    color: green;
+}
+.img
+{
+    width: 150px;
+}

@@ -26,6 +26,8 @@
                 </div>
             </div>
         </div>
+        <div class="tab-pane text-center" id="following" role="tabpanel">
+        </div>
     </div>
 </div>
 <?php include("includes/navbarMain.php"); ?>
@@ -43,6 +45,16 @@ $user_id=$user_id[0][0];
 $all_tweets_id_follower=pg_query($con,"SELECT user_id FROM followers WHERE follower_id='$user_id'");
 $all_tweets_id_follower = pg_fetch_all($all_tweets_id_follower, PGSQL_NUM);
 
+if(!($all_tweets_id_follower)){
+    print '<script type="text/javascript">
+        var tab=document.getElementsByClassName("tab-pane text-center");
+        var divH=document.createElement(\'div\');
+        divH.innerHTML=\'<h3 class="text-muted">Not following anyone yet :(</h3><button class="btn btn-warning btn-round"><a style="color:white" href="feed.php">Find artists</a></button>\';
+        var node=document.createTextNode("");
+        divH.appendChild(node);
+        tab[0].appendChild(divH);
+    </script>';
+}
 $arr = [];
 if (!empty($_GET["tweet_id"])) {
     $tweet_id_insert = htmlspecialchars($_GET['tweet_id']);
@@ -76,7 +88,7 @@ foreach ($all_tweets_id_follower as $alltweet) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></button></div>\';
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm"  data-toggle="modal" data-target="#retweetModal"><i class="fa fa-retweet" aria-hidden="true"></i></button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     
