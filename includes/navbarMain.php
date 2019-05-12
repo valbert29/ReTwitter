@@ -29,7 +29,7 @@
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-danger btn-round"><a style="color: white" href="../ReTwitter/login.php"> Выйти</a> </button>
+                    <button class="btn btn-danger btn-round"><a style="color: white" href="../ReTwitter/login.php"><?php session_write_close()?> Выйти</a> </button>
                 </li>
             </ul>
         </div>

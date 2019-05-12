@@ -103,7 +103,7 @@ if (!empty($_GET["login"])) {
         </script>';
         }
     }
-}else{
+} else {
     print '<script type="text/javascript">
           var mainDiv=document.getElementsByClassName("list-unstyled");
         
@@ -116,7 +116,7 @@ if (!empty($_GET["login"])) {
                                                 \'<label for="exampleFormControlTextarea1">У вас есть о чем рассказать?</label>\'+
                                                 \'<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>\'+
                                             \'</div>\'+
-                                            \'<input type="submit" class="btn btn-danger btn-sm" value="Опубликовать">\'+
+                                            \'<input type="submit" class="btn btn-danger btn-sm send" value="Опубликовать">\'+
                                         \'</form>\'+
                                     \'</div>\';
         divCard.className=\'card1\';
@@ -129,13 +129,13 @@ $findLogin = pg_query($con, "SELECT id FROM user_t WHERE login='" . $login_add .
 $findLogin = pg_fetch_array($findLogin, 0, PGSQL_NUM);
 $findLogin = $findLogin[0];
 $search_followers = pg_query($con, "SELECT user_id FROM followers where follower_id='$findLogin'");
-$num_fol=pg_numrows($search_followers);
+$num_fol = pg_numrows($search_followers);
 $search_followers = pg_fetch_all($search_followers, PGSQL_NUM);
 
 $findSubscriber = pg_query($con, "SELECT follower_id FROM followers where user_id='$findLogin'");
-$num_sub=pg_numrows($findSubscriber);
+$num_sub = pg_numrows($findSubscriber);
 $findSubscriber = pg_fetch_all($findSubscriber, PGSQL_NUM);
-if ($num_sub==0) {
+if ($num_sub == 0) {
     print '<script type="text/javascript">
         var tab=document.getElementsByClassName("tab-pane text-center follows");
         var divH=document.createElement(\'div\');
@@ -166,7 +166,7 @@ if ($num_sub==0) {
     }
 
 }
-if ($num_fol==0) {
+if ($num_fol == 0) {
     print '<script type="text/javascript">
         var tab=document.getElementsByClassName("tab-pane text-center following");
         var divH=document.createElement(\'div\');
@@ -222,12 +222,34 @@ if (!empty($_GET["add_follow_user"])) {
         </script>';
 
 }
+$tweet_retweet='';
 if (!empty($_GET["tweet_retweet"])) {
     $tweet_retweet = htmlspecialchars($_GET['tweet_retweet']);
     $alltweets = pg_query($con,
         "SELECT * FROM tweet WHERE id='$tweet_retweet'");
     $alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
-     print ($alltweets);
+    $alltweets = $alltweets[0];
+    $user_id = $alltweets[1];
+    $findUser = pg_query($con, "SELECT login FROM user_t WHERE id='" . $user_id . "'");
+    $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
+    $login = $findUser[0];
+    $text = $alltweets[2];
+    $retweet = pg_query($con, "INSERT into tweet_retweet(tweet_id, user_id) VALUES ('$tweet_retweet','$user_id')");
+    print '<script type="text/javascript">
+     var tweet=document.getElementsByClassName("card1");
+     var divCard=document.createElement(\'div\');
+     var li=document.createElement(\'li\');
+      var button=document.getElementsByClassName("btn btn-danger btn-sm send");
+     button[0].defaultValue ="Ретвитнуть";
+     divCard.id=' . $tweet_retweet . ';
+     divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p></div>\';
+     li.appendChild(divCard);
+     tweet[0].appendChild(li);
+     var text=document.getElementsByName("tweet");
+     if(text[0].value!==\'\'){
+     text[0].value+=' . $tweet_retweet . ';
+     }
+    </script>';
 
 }
 
@@ -250,6 +272,7 @@ div[0].appendChild(para);
 if (!isset($_GET["account"])) {
     if (!empty($_GET['tweet'])) {
         $tweet = htmlspecialchars($_GET['tweet']);
+        print $tweet_retweet.'1';
         $date = date('d-m-y');
         $date = (string)$date;
         $insert_tweet = pg_query($con, "INSERT into tweet(author,text,date) values ('$user_id','$tweet','$date')");
@@ -257,6 +280,13 @@ if (!isset($_GET["account"])) {
     }
 
 };
+if(!empty($_GET['delete'])){
+    $delete=htmlspecialchars($_GET['delete']);
+    $delete_retweet=pg_query($con,"DELETE from tweet_retweet WHERE tweet_id='$delete'");
+    $delete_like=pg_query($con,"DELETE from tweet_like WHERE tweet_id='$delete'");
+    $delete_tweet=pg_query($con,"DELETE from tweet WHERE id='$delete'");
+    print '<script type="javascript">location.reload();</script>';
+}
 //выводим все его твиты
 $alltweets = pg_query($con,
     "SELECT tweet.id,name,surname,login,date,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
@@ -285,7 +315,7 @@ if ($numrows != 0) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"  ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
+        divCard.innerHTML=\'<div><img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><a href="account.php?delete=' . $tweet_id . '"><i class="fa fa-times"  style="color:gray;float:right;margin-right:40px;margin-top:40px;cursor:pointer" style="flo"aria-hidden="true"></i></a></div><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"  ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     
