@@ -51,6 +51,7 @@ if (!isset($_GET["register"])) {
 
             }
         }
+        header("Location:login.php");
     }
 }
 ?>

@@ -1,4 +1,7 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header.php");
+session_start();
+$_SESSION=array();
+?>
 <body class="register-page sidebar-collapse">
 <?php include("includes/navbar.php"); ?>
 <div class="page-header" style="background-image: url('assets/img/login-image.jpg');">
@@ -26,7 +29,7 @@
 </div>
 <?php include("includes/footer.php"); ?>
 <?php require_once("includes/connection.php");
-session_start();
+
 
 
 

@@ -1,5 +1,8 @@
 <?php include("includes/header.php");
 session_start();
+if (!isset($_SESSION['session_login'])) {
+    header("location:login.php");
+}
 $login_add = $_SESSION['session_login'];
 ?>
 <body class="profile-page sidebar-collapse">
@@ -14,8 +17,10 @@ $login_add = $_SESSION['session_login'];
     <div class="container">
         <div class="owner">
             <div class="avatar">
-                <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
-                     class="img-circle img-no-padding img-responsive">
+                <a href="">
+                    <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
+                         class="img-circle img-no-padding img-responsive"></a>
+
             </div>
         </div>
         <br/>
@@ -222,7 +227,6 @@ if (!empty($_GET["add_follow_user"])) {
         </script>';
 
 }
-$tweet_retweet='';
 if (!empty($_GET["tweet_retweet"])) {
     $tweet_retweet = htmlspecialchars($_GET['tweet_retweet']);
     $alltweets = pg_query($con,
@@ -234,22 +238,8 @@ if (!empty($_GET["tweet_retweet"])) {
     $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
     $login = $findUser[0];
     $text = $alltweets[2];
-    $retweet = pg_query($con, "INSERT into tweet_retweet(tweet_id, user_id) VALUES ('$tweet_retweet','$user_id')");
-    print '<script type="text/javascript">
-     var tweet=document.getElementsByClassName("card1");
-     var divCard=document.createElement(\'div\');
-     var li=document.createElement(\'li\');
-      var button=document.getElementsByClassName("btn btn-danger btn-sm send");
-     button[0].defaultValue ="Ретвитнуть";
-     divCard.id=' . $tweet_retweet . ';
-     divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p></div>\';
-     li.appendChild(divCard);
-     tweet[0].appendChild(li);
-     var text=document.getElementsByName("tweet");
-     if(text[0].value!==\'\'){
-     text[0].value+=' . $tweet_retweet . ';
-     }
-    </script>';
+    $retweet = pg_query($con, "INSERT into tweet_retweet(tweet_id, user_id) VALUES ('$tweet_retweet','$findLogin')");
+    pg_query($con, "INSERT into tweet(author, text) values ('$findLogin','$text')");
 
 }
 
@@ -257,7 +247,7 @@ $result = pg_query($con, "SELECT * FROM user_t WHERE login='" . $login_add . "'"
 $arr = pg_fetch_array($result, 0, PGSQL_NUM);
 $user_id = $arr[0];
 $login = $arr[1];
-$fullname = $arr[2] . $arr[3];
+$fullname = $arr[2] . " " . $arr[3];
 $birth = $arr[5];
 print '<script type="text/javascript">
 var div=document.getElementsByClassName("owner");
@@ -272,24 +262,21 @@ div[0].appendChild(para);
 if (!isset($_GET["account"])) {
     if (!empty($_GET['tweet'])) {
         $tweet = htmlspecialchars($_GET['tweet']);
-        print $tweet_retweet.'1';
-        $date = date('d-m-y');
-        $date = (string)$date;
-        $insert_tweet = pg_query($con, "INSERT into tweet(author,text,date) values ('$user_id','$tweet','$date')");
+        $insert_tweet = pg_query($con, "INSERT into tweet(author,text) values ('$user_id','$tweet')");
         print '<script type="javascript">location.reload();</script>';
     }
 
 };
-if(!empty($_GET['delete'])){
-    $delete=htmlspecialchars($_GET['delete']);
-    $delete_retweet=pg_query($con,"DELETE from tweet_retweet WHERE tweet_id='$delete'");
-    $delete_like=pg_query($con,"DELETE from tweet_like WHERE tweet_id='$delete'");
-    $delete_tweet=pg_query($con,"DELETE from tweet WHERE id='$delete'");
+if (!empty($_GET['delete'])) {
+    $delete = htmlspecialchars($_GET['delete']);
+    $delete_retweet = pg_query($con, "DELETE from tweet_retweet WHERE tweet_id='$delete'");
+    $delete_like = pg_query($con, "DELETE from tweet_like WHERE tweet_id='$delete'");
+    $delete_tweet = pg_query($con, "DELETE from tweet WHERE id='$delete'");
     print '<script type="javascript">location.reload();</script>';
 }
 //выводим все его твиты
 $alltweets = pg_query($con,
-    "SELECT tweet.id,name,surname,login,date,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
+    "SELECT tweet.id,name,surname,login,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
 $arr = [];
 $numrows = pg_num_rows($alltweets);
 if ($numrows != 0) {
@@ -303,8 +290,8 @@ if ($numrows != 0) {
         $tweet_id = $infAboutIwit[0];
         $fullname = $infAboutIwit[1] . $infAboutIwit[2];
         $nameUser = $infAboutIwit[3];
-        $dateCreatetweet = $infAboutIwit[4];
-        $text = $infAboutIwit[5];
+        $text = $infAboutIwit[4];
+
         $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
         $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
         $count = $count_like['count'];
@@ -322,6 +309,52 @@ if ($numrows != 0) {
         li.appendChild(divCard);
         mainDiv[0].appendChild(li);
       </script>';
+
+    }
+//айди твита который ретвитнули(107)
+    $search_retweet_id = pg_query($con, "SELECT tweet_id,text FROM tweet_retweet JOIN tweet 
+                                                ON tweet_retweet.tweet_id = tweet.id AND user_id='$user_id'");
+    $search_retweet_id = pg_fetch_all($search_retweet_id, PGSQL_NUM);
+    if ($search_retweet_id) {
+        foreach ($search_retweet_id as $value) {
+            $search_id = $value[0];
+            $text_bla = $value[1];
+            //логин пользователя у которого сперли твит
+            $login_tweeter = pg_query($con, "SELECT login FROM user_t JOIN tweet t on user_t.id = t.author
+                                        WHERE t.id='$search_id'");
+            $login_tweeter = pg_fetch_all($login_tweeter, PGSQL_NUM);
+            $login_tweeter = $login_tweeter[0][0];
+
+            //текст всех твитов пользователя
+            $search_all_text = pg_query($con, "SELECT text FROM tweet WHERE author='$user_id'");
+            $search_all_text = pg_fetch_all($search_all_text, PGSQL_NUM);
+
+            //айди ретвита у вора
+            $search_text_retweet = pg_query($con, "SELECT id FROM tweet WHERE text='$text_bla' AND author='$user_id'");
+            $search_text_retweet = pg_fetch_all($search_text_retweet, PGSQL_NUM);
+            $search_text_retweet = $search_text_retweet[0][0];
+
+
+            foreach ($search_all_text as $item) {
+                if ($item[0] === $text_bla) {
+                    print '<script type="text/javascript">
+var retweet=document.getElementsByClassName("card");
+for(let i = 0; i < retweet.length; i++) {
+    let id_retweet=' . $search_text_retweet . ';
+     if(retweet[i].id==id_retweet){
+        var fa=document.createElement(\'i\');
+        fa.className="fa fa-retweet";
+        fa.ariahidden="true";
+        var node = document.createTextNode("         Вы ретвитнули");
+        retweet[i].firstChild.appendChild(node);
+         retweet[i].firstChild.appendChild(fa);
+         retweet[i].getElementsByClassName("card-title")[0].innerText=\'' . $login_tweeter . '\';
+      }
+  }
+</script>';
+                }
+            }
+        }
     }
 }
 

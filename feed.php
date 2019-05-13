@@ -1,4 +1,5 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header.php");
+session_start();?>
 
 <body class="profile-page sidebar-collapse">
 <?php include("includes/navbarMain.php"); ?>
@@ -35,7 +36,7 @@
 <?php include("includes/footer.php"); ?>
 <?php
 require_once("includes/connection.php");
-session_start();
+
 $user = $_SESSION['session_login'];
 $findUser = pg_query($con, "SELECT id FROM user_t WHERE login='" . $user . "'");
 $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
@@ -60,8 +61,9 @@ for ($i = count($arr) - 1; $i >= 0; $i--) {
     $user_id = $infAboutIwit[1];
     $text = $infAboutIwit[2];
     $dateCreatetweet = $infAboutIwit[3];
-    $fullname = $infAboutIwit[6] . $infAboutIwit[7];
-    $login = $infAboutIwit[5];
+    $fullname = $infAboutIwit[5] . $infAboutIwit[6];
+    $login = $infAboutIwit[4];
+
     $count_retweet = pg_query($con, "SELECT count(user_id) FROM tweet_retweet WHERE tweet_id='$tweet_id'");
     $count_retweet = pg_fetch_array($count_retweet, null, PGSQL_ASSOC);
     $count_retweet = $count_retweet['count'];
@@ -107,7 +109,6 @@ for ($i = count($arr) - 1; $i >= 0; $i--) {
         }
         }
       </script>';
-
 }
 
 ?>
