@@ -29,6 +29,11 @@
                     </button>
                 </li>
                 <li class="nav-item">
+                    <button class="btn btn-danger btn-round">
+                        <i class="fa fa-inbox"></i> <a style="color: white" href="../Retwitter/dialog.php"> Мои сooбщения</a>
+                    </button>
+                </li>
+                <li class="nav-item">
                     <button class="btn btn-danger btn-round"><a style="color: white" href="../ReTwitter/login.php"><?php session_write_close()?> Выйти</a> </button>
                 </li>
             </ul>

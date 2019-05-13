@@ -64,12 +64,13 @@
       <ObjectId>188569</ObjectId>
       <StateNumber>363254</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>363958</IntrospectionStateNumber>
+      <IntrospectionStateNumber>364034</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|196761|196763|1
 sequence|table|204989|204991|1
 sequence|table|213184|213186|1
+sequence|table|213203|213200|1
 </Relations>
     </database>
     <database id="14" parent="1" name="violin">
@@ -146,7 +147,7 @@ sequence|table|213184|213186|1
       <Comment>standard public schema</Comment>
       <StateNumber>562</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>363959</IntrospectionStateNumber>
+      <IntrospectionStateNumber>364035</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -195,63 +196,75 @@ sequence|table|213184|213186|1
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="34" parent="25" name="twit1_id_seq">
+    <sequence id="34" parent="25" name="pm_id_seq">
+      <ObjectId>213203</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>364014</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="35" parent="25" name="twit1_id_seq">
       <ObjectId>204989</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363516</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="35" parent="25" name="user_id_seq">
+    <sequence id="36" parent="25" name="user_id_seq">
       <ObjectId>196761</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363287</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="36" parent="25" name="followers">
+    <table id="37" parent="25" name="followers">
       <ObjectId>213158</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363737</StateNumber>
     </table>
-    <table id="37" parent="25" name="images">
+    <table id="38" parent="25" name="images">
       <ObjectId>213186</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363810</StateNumber>
     </table>
-    <table id="38" parent="25" name="tweet">
+    <table id="39" parent="25" name="pm">
+      <ObjectId>213200</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>364033</StateNumber>
+    </table>
+    <table id="40" parent="25" name="tweet">
       <ObjectId>204991</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363950</StateNumber>
     </table>
-    <table id="39" parent="25" name="tweet_like">
+    <table id="41" parent="25" name="tweet_like">
       <ObjectId>213145</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363903</StateNumber>
     </table>
-    <table id="40" parent="25" name="tweet_retweet">
+    <table id="42" parent="25" name="tweet_retweet">
       <ObjectId>213171</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363835</StateNumber>
     </table>
-    <table id="41" parent="25" name="user_t">
+    <table id="43" parent="25" name="user_t">
       <ObjectId>196763</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>363787</StateNumber>
     </table>
-    <column id="42" parent="36" name="user_id">
+    <column id="44" parent="37" name="user_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363737</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="43" parent="36" name="follower_id">
+    <column id="45" parent="37" name="follower_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363737</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="44" parent="36" name="followers_user_t__fk">
+    <foreign-key id="46" parent="37" name="followers_user_t__fk">
       <ObjectId>213161</ObjectId>
       <StateNumber>363737</StateNumber>
       <ColNames>user_id</ColNames>
@@ -261,7 +274,7 @@ sequence|table|213184|213186|1
       <RefKeyName>user_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="45" parent="36" name="followers_user_t__fk_2">
+    <foreign-key id="47" parent="37" name="followers_user_t__fk_2">
       <ObjectId>213166</ObjectId>
       <StateNumber>363737</StateNumber>
       <ColNames>follower_id</ColNames>
@@ -271,7 +284,7 @@ sequence|table|213184|213186|1
       <RefKeyName>user_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="46" parent="37" name="id">
+    <column id="48" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -279,13 +292,88 @@ sequence|table|213184|213186|1
       <DefaultExpression>nextval(&apos;images_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="47" parent="37" name="img">
+    <column id="49" parent="38" name="img">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>363810</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="48" parent="38" name="id">
+    <column id="50" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>364020</StateNumber>
+      <DefaultExpression>nextval(&apos;pm_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="51" parent="39" name="id2">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>364011</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="52" parent="39" name="user1">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>364011</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="53" parent="39" name="message">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>364011</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="54" parent="39" name="timestamp">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>364011</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="55" parent="39" name="title">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>364021</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="56" parent="39" name="user2">
+      <Position>7</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>364024</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="57" parent="39" name="user1read">
+      <Position>8</Position>
+      <DataType>varchar(3)|0s</DataType>
+      <StateNumber>364025</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="58" parent="39" name="user2read">
+      <Position>9</Position>
+      <DataType>varchar(3)|0s</DataType>
+      <StateNumber>364026</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="59" parent="39" name="dialogid">
+      <Position>10</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>364033</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="60" parent="39" name="pm_pk">
+      <ObjectId>213209</ObjectId>
+      <StateNumber>364020</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="39" name="pm_pk">
+      <ObjectId>213210</ObjectId>
+      <StateNumber>364020</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pm_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -293,32 +381,32 @@ sequence|table|213184|213186|1
       <DefaultExpression>nextval(&apos;twit1_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="49" parent="38" name="author">
+    <column id="63" parent="40" name="author">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363516</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="38" name="text">
+    <column id="64" parent="40" name="text">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>363516</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="51" parent="38" name="twit1_pk">
+    <index id="65" parent="40" name="twit1_pk">
       <ObjectId>204995</ObjectId>
       <StateNumber>363516</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="52" parent="38" name="twit1_pk">
+    <key id="66" parent="40" name="twit1_pk">
       <ObjectId>204996</ObjectId>
       <StateNumber>363516</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>twit1_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="53" parent="38" name="twit1_user_t__fk">
+    <foreign-key id="67" parent="40" name="twit1_user_t__fk">
       <ObjectId>204997</ObjectId>
       <StateNumber>363519</StateNumber>
       <ColNames>author</ColNames>
@@ -328,19 +416,19 @@ sequence|table|213184|213186|1
       <RefKeyName>user_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="54" parent="39" name="tweet_id">
+    <column id="68" parent="41" name="tweet_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363587</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="55" parent="39" name="user_id">
+    <column id="69" parent="41" name="user_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363587</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="56" parent="39" name="tweet_like_twit__fk">
+    <foreign-key id="70" parent="41" name="tweet_like_twit__fk">
       <ObjectId>213195</ObjectId>
       <StateNumber>363903</StateNumber>
       <ColNames>tweet_id</ColNames>
@@ -351,7 +439,7 @@ sequence|table|213184|213186|1
       <RefColNames>id</RefColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="57" parent="39" name="tweet_like_user_t__fk">
+    <foreign-key id="71" parent="41" name="tweet_like_user_t__fk">
       <ObjectId>213153</ObjectId>
       <StateNumber>363595</StateNumber>
       <ColNames>user_id</ColNames>
@@ -361,19 +449,19 @@ sequence|table|213184|213186|1
       <RefKeyName>user_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="58" parent="40" name="tweet_id">
+    <column id="72" parent="42" name="tweet_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363787</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="40" name="user_id">
+    <column id="73" parent="42" name="user_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>363787</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="60" parent="40" name="tweet_retweet_tweet__fk">
+    <foreign-key id="74" parent="42" name="tweet_retweet_tweet__fk">
       <ObjectId>213174</ObjectId>
       <StateNumber>363787</StateNumber>
       <ColNames>tweet_id</ColNames>
@@ -383,7 +471,7 @@ sequence|table|213184|213186|1
       <RefKeyName>twit1_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="61" parent="40" name="tweet_retweet_user_t__fk">
+    <foreign-key id="75" parent="42" name="tweet_retweet_user_t__fk">
       <ObjectId>213179</ObjectId>
       <StateNumber>363787</StateNumber>
       <ColNames>user_id</ColNames>
@@ -393,7 +481,7 @@ sequence|table|213184|213186|1
       <RefKeyName>user_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="62" parent="41" name="id">
+    <column id="76" parent="43" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -401,69 +489,69 @@ sequence|table|213184|213186|1
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="63" parent="41" name="login">
+    <column id="77" parent="43" name="login">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>363287</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="41" name="name">
+    <column id="78" parent="43" name="name">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>363308</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="65" parent="41" name="surname">
+    <column id="79" parent="43" name="surname">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <StateNumber>363323</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="66" parent="41" name="email">
+    <column id="80" parent="43" name="email">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <StateNumber>363298</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="67" parent="41" name="birth_date">
+    <column id="81" parent="43" name="birth_date">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <StateNumber>363309</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="68" parent="41" name="photo">
+    <column id="82" parent="43" name="photo">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>363705</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="41" name="page_photo">
+    <column id="83" parent="43" name="page_photo">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>363305</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="41" name="password">
+    <column id="84" parent="43" name="password">
       <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>363310</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="71" parent="41" name="user_pk">
+    <index id="85" parent="43" name="user_pk">
       <ObjectId>196770</ObjectId>
       <StateNumber>363287</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="72" parent="41" name="user_login_uindex">
+    <index id="86" parent="43" name="user_login_uindex">
       <ObjectId>196772</ObjectId>
       <StateNumber>363288</StateNumber>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="73" parent="41" name="user_pk">
+    <key id="87" parent="43" name="user_pk">
       <ObjectId>196771</ObjectId>
       <StateNumber>363287</StateNumber>
       <ColNames>id</ColNames>

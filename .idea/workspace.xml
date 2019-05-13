@@ -5,11 +5,252 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037/storage_v2/_src_/database/twitter.c6phyQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7ac365c3-89a6-4ad6-8c15-bd30605cd037/storage_v2/_src_/database/twitter.c6phyQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/feed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/paper-kit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/paper-kit.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/paper-kit.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/demo/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font-awesome-4.7.0/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/antoine-barres.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/apple-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blurred-image-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bruno-abatti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/clouds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/creative-tim-white-slim2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/daniel-olahh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/daniel-olahs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/default-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/eva.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/fabio-mangione.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/ayo-ogunseinde-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/clem-onojeghuo-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/clem-onojeghuo-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/erik-lucatero-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/joe-gardner-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/faces/kaci-baum-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/federico-beccari.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/AU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/BE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/BF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/BG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/BO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/BR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/CZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/DE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/DJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/DK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/DZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/EE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/EG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/ES.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/FI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/FR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/GA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/GB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/GM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/GT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/HN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/HT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/HU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/ID.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/IT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/JM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/JO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/JP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/KZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/LV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/MG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/MK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/ML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/MM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/MT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/MX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/NO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/OM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/PY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/QA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/RO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/RU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/RW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/SV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/TD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/TJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/TL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/TR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/TZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/UA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/US.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/VE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/VN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/flags/YE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/fog-low.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/header.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ilya-yakover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/invision-white-slim.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/joshua-stannard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/login-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/new_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/nucleo-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/placeholder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ryan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soroush-karimi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/uriel-soberanes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/core/bootbox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/core/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/core/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/core/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/paper-kit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/paper-kit.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/paper-kit.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugins/bootstrap-datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugins/bootstrap-switch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugins/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugins/nouislider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_alerts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_badges.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_cards.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_checkbox-radio.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_examples.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_footers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_headers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_inputs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_labels.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_misc.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_navbars.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_nucleo-icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_nucleo-outline.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_progress-bars.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_responsive.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_sections.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_sidebar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_sliders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_social-buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_switch.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_tabs-navs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_tags.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_tooltips-and-popovers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_typography.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/cards/_card-plain.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/cards/_card-profile.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/cards/_card-register.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_alerts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_inputs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_labels.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_navbars.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_popovers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_tabs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_transparency.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/mixins/_vendor-prefixes.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/plugins/_plugin-bootstrap-switch.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/plugins/_plugin-datepicker.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/plugins/_plugin-nouislider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/paper-kit/plugins/_plugin-perfect-scrollbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/navbarMain.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/navbarMain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tet" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,37 +317,7 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="tweet: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="twitter@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="twitter: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="tweet_like: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="twitter@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="twitter: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="tweet_retweet: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="twitter@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="twitter: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="user_t: table" type="69fad909:PgImplModel$LocalTable" />
+        <item name="pm: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
     </expand>
     <select />
@@ -114,37 +325,68 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account.php">
+        <entry file="file://$PROJECT_DIR$/new_pm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="359" lean-forward="true" selection-start-line="359" selection-end-line="359" />
+            <state relative-caret-position="170">
+              <caret line="111" column="70" selection-start-line="111" selection-start-column="67" selection-end-line="111" selection-end-column="70" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#daiv#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#daiv#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/user_t">
+        <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/pm">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
+              <column-attributes>
+                <column name="ctid" enabled="false" />
+              </column-attributes>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/read_pm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="13" />
+              <folding>
+                <element signature="e#213#305#0#HTML" expanded="true" />
+                <element signature="e#4204#4252#0#HTML" expanded="true" />
+                <element signature="e#4306#4330#0#HTML" expanded="true" />
+                <element signature="e#4628#4646#0#HTML" expanded="true" />
+                <element signature="e#4814#4832#0#HTML" expanded="true" />
+                <element signature="e#5406#5425#0#HTML" expanded="true" />
+                <element signature="e#6248#6267#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7ac365c3-89a6-4ad6-8c15-bd30605cd037/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="27" column="27" lean-forward="true" selection-start-line="20" selection-end-line="27" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/feed.php">
+        <entry file="file://$PROJECT_DIR$/list_pm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state relative-caret-position="318">
+              <caret line="37" column="67" lean-forward="true" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
+              <folding>
+                <element signature="e#217#311#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,15 +402,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>username</find>
-      <find>comment</find>
-      <find>commenta</find>
-      <find>right-area</find>
-      <find>commnets-area</find>
-      <find>repl</find>
-      <find>elem</find>
-      <find>tw</find>
-      <find>intropage</find>
       <find>fa-fa-</find>
       <find>fa-reply</find>
       <find>twit</find>
@@ -178,18 +411,27 @@
       <find>para</find>
       <find>img-circle img-no-padding img-responsive</find>
       <find>img-responsive</find>
-      <find>../</find>
       <find>print</find>
       <find>list-unstyled follows follows</find>
       <find>list-unstyled follows</find>
       <find>modal</find>
       <find>#ex1</find>
-      <find>POST</find>
       <find>get</find>
       <find>tweet</find>
       <find>owner</find>
       <find>date</find>
       <find>birth</find>
+      <find>../</find>
+      <find>read_pm</find>
+      <find>new</find>
+      <find>pm</find>
+      <find>dia</find>
+      <find>dialog</find>
+      <find>dialo</find>
+      <find>dialogI</find>
+      <find>POST</find>
+      <find>read</find>
+      <find>req1</find>
     </findStrings>
     <replaceStrings>
       <replace>con</replace>
@@ -199,6 +441,9 @@
       <replace>tweet</replace>
       <replace>name</replace>
       <replace>list-unstyled</replace>
+      <replace>writeMessage</replace>
+      <replace>message</replace>
+      <replace>mGET</replace>
       <replace>GET</replace>
     </replaceStrings>
   </component>
@@ -208,7 +453,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/connectDB.php" />
         <option value="$PROJECT_DIR$/request.php" />
         <option value="$PROJECT_DIR$/db.php" />
         <option value="$PROJECT_DIR$/signup.php" />
@@ -239,20 +483,32 @@
         <option value="$PROJECT_DIR$/add_images_form.php" />
         <option value="$PROJECT_DIR$/add_images.php" />
         <option value="$PROJECT_DIR$/tet" />
-        <option value="$PROJECT_DIR$/includes/navbarMain.php" />
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/form.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7ac365c3-89a6-4ad6-8c15-bd30605cd037/console.sql" />
         <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/account.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/feed.php" />
+        <option value="$PROJECT_DIR$/list_pm.html" />
+        <option value="$PROJECT_DIR$/new_pm.html" />
+        <option value="$PROJECT_DIR$/read_pm.html" />
+        <option value="$USER_HOME$/AppData/Local/Temp/list_pm.php" />
+        <option value="$PROJECT_DIR$/dialog.php" />
+        <option value="$PROJECT_DIR$/includes/navbarMain.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/read_pm.php" />
+        <option value="$PROJECT_DIR$/message.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/new_pm.php" />
+        <option value="$PROJECT_DIR$/writeMessage.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7ac365c3-89a6-4ad6-8c15-bd30605cd037/console.sql" />
+        <option value="$PROJECT_DIR$/new_pm.php" />
+        <option value="$PROJECT_DIR$/read-pm.php" />
+        <option value="$PROJECT_DIR$/list_pm.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -271,6 +527,11 @@
             <path>
               <item name="ReTwitter" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReTwitter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ReTwitter" type="b2602c69:ProjectViewProjectNode" />
@@ -301,6 +562,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -371,18 +635,18 @@
       <workItem from="1557307582502" duration="19200000" />
       <workItem from="1557356562292" duration="3772000" />
       <workItem from="1557404953955" duration="20225000" />
-      <workItem from="1557438334330" duration="87635000" />
+      <workItem from="1557438334330" duration="93983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157367000" />
+    <option name="totallyTimeSpent" value="163715000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2753404" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2753404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -432,55 +696,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prosto tak/single-post-1/css/responsive.css" />
-    <entry file="file://$PROJECT_DIR$/prosto tak/single-post-1/css/styles.css" />
-    <entry file="file://$PROJECT_DIR$/prosto tak/index.html" />
-    <entry file="file://$PROJECT_DIR$/account/workWithDB.php" />
-    <entry file="file://$PROJECT_DIR$/intropage.php" />
-    <entry file="file://$PROJECT_DIR$/account.js" />
-    <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/twit">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/font-awesome-4.7.0/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="477" column="19" selection-start-line="477" selection-start-column="19" selection-end-line="485" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/роп.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/5dfe981827a52329f4bf9e0fad48e45d.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/actions.php" />
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="14" selection-start-line="248" selection-start-column="14" selection-end-line="248" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/skripka/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -580,13 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/core/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -671,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/navbarMain.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="31" column="142" selection-start-line="31" selection-start-column="142" selection-end-line="31" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -699,13 +900,6 @@
           <column-attributes>
             <column name="ctid" enabled="false" />
           </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7ac365c3-89a6-4ad6-8c15-bd30605cd037/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="77" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -733,17 +927,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account.php">
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="359" lean-forward="true" selection-start-line="359" selection-end-line="359" />
+        <state relative-caret-position="544">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
+    <entry file="file://$PROJECT_DIR$/list_pm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state>
+          <caret selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/core/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -754,10 +962,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feed.php">
+    <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state relative-caret-position="525">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="359" selection-start-line="359" selection-end-line="359" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_pm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_pm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/navbarMain.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="32" column="101" selection-start-line="32" selection-start-column="101" selection-end-line="32" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/list_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="60" selection-start-line="60" selection-end-line="171" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#daiv#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/read_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/new_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7ac365c3-89a6-4ad6-8c15-bd30605cd037/database/twitter/schema/public/table/pm">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7ac365c3-89a6-4ad6-8c15-bd30605cd037/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="20" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/list_pm-1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1562" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/new_pm-1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2694">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/read_pm-1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2858">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="111" column="70" selection-start-line="111" selection-start-column="67" selection-end-line="111" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#daiv#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#daiv#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#213#305#0#HTML" expanded="true" />
+            <element signature="e#4204#4252#0#HTML" expanded="true" />
+            <element signature="e#4306#4330#0#HTML" expanded="true" />
+            <element signature="e#4628#4646#0#HTML" expanded="true" />
+            <element signature="e#4814#4832#0#HTML" expanded="true" />
+            <element signature="e#5406#5425#0#HTML" expanded="true" />
+            <element signature="e#6248#6267#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list_pm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="37" column="67" lean-forward="true" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
+          <folding>
+            <element signature="e#217#311#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
