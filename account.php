@@ -18,8 +18,10 @@ $login_add = $_SESSION['session_login'];
         <div class="owner">
             <div class="avatar">
                 <a href="">
+                    <input type="file">
                     <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
                          class="img-circle img-no-padding img-responsive"></a>
+                    <form encrypt=""
 
             </div>
         </div>

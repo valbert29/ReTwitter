@@ -50,9 +50,12 @@ if(isset($_GET["login"])){
             }
             if($login == $dblogin && $password == $dbpassword)
             {
+                $query=pg_query($con,"SELECT user_t.id from user_t where login ='$login' and password='$password' ");
                 // старое место расположения
                 //  session_start();
+                $query=pg_fetch_array(  $query);
                 $_SESSION['session_login']=$login;
+                $_SESSION['userid']=$query['id'];
                 /* Перенаправление браузера */
                 header("Location: account.php");
             }

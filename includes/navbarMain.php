@@ -15,26 +15,26 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="nc-icon nc-tile-56"></i> <a style="color: white" href="../Retwitter/feed.php"> Лента твитов</a>
+                        <i class="nc-icon nc-tile-56"></i> <a style="color: white" href="../feed.php"> Лента твитов</a>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="fa fa-newspaper-o" aria-hidden="true"></i><a style="color: white" href="../ReTwitter/main.php"> Мои подписки</a>
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i><a style="color: white" href="../main.php"> Мои подписки</a>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="nc-icon nc-circle-10"></i><a style="color: white" href="../ReTwitter/account.php"> Профиль</a>
+                        <i class="nc-icon nc-circle-10"></i><a style="color: white" href="../account.php"> Профиль</a>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="fa fa-inbox"></i> <a style="color: white" href="../Retwitter/dialog.php"> Мои сooбщения</a>
+                        <i class="fa fa-inbox"></i> <a style="color: white" href="../dialog.php"> Мои сooбщения</a>
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-danger btn-round"><a style="color: white" href="../ReTwitter/login.php"><?php session_write_close()?> Выйти</a> </button>
+                    <button class="btn btn-danger btn-round"><a style="color: white" href="../login.php"> Выйти</a> </button>
                 </li>
             </ul>
         </div>

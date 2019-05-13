@@ -64,7 +64,7 @@
       <ObjectId>188569</ObjectId>
       <StateNumber>363254</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>364034</IntrospectionStateNumber>
+      <IntrospectionStateNumber>364038</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|196761|196763|1
@@ -147,7 +147,7 @@ sequence|table|213203|213200|1
       <Comment>standard public schema</Comment>
       <StateNumber>562</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>364035</IntrospectionStateNumber>
+      <IntrospectionStateNumber>364039</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
