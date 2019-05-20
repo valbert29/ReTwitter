@@ -1,4 +1,5 @@
 <?php include("includes/header.php");
+include("includes/connection.php");
 session_start();
 if (!isset($_SESSION['session_login'])) {
     header("location:login.php");
@@ -16,14 +17,40 @@ $login_add = $_SESSION['session_login'];
 <div class="section profile-content">
     <div class="container">
         <div class="owner">
+
             <div class="avatar">
-                <a href="">
-                    <input type="file">
-                    <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
-                         class="img-circle img-no-padding img-responsive"></a>
-                    <form encrypt=""
+
 
             </div>
+            <?php
+            $query = pg_query($con, 'select * from user_t where login=' . "'" . $_SESSION['session_login'] . "'");
+            $query = pg_fetch_array($query);
+            if (isset($_FILES['userfile'])) {
+
+                $uploaddir = "img/";
+                $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+                $query1 = pg_query($con, "UPDATE user_t
+	   SET photo = 'img/" . $_FILES['userfile']['name'] . "'" .
+                    " WHERE login =" . "'" . $_SESSION['session_login'] . "'");
+                move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+            }
+            print '<script type="javascript">location.reload();</script>';
+            if (!isset($_GET['login'])) {
+                if ((!isset($_GET['login'])) || ($_SESSION['session_login'] == $_GET['login'])) {
+                    if (!isset($_GET['add_follow_user'])) {
+
+                        ?>
+                        <form enctype="multipart/form-data" action="account.php" method="POST">
+                            <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
+                            <!-- Название элемента input определяет имя в массиве $_FILES -->
+                            <input class="btn btn-danger btn-round" name="userfile" type="file"/>
+                            <br><br>
+                            <input type="submit" class="btn btn-danger btn-round" value="Отправить файл"/>
+                        </form><?php
+                    }
+                }
+            }
+            ?>
         </div>
         <br/>
         <div class="nav-tabs-navigation">
@@ -156,13 +183,14 @@ if ($num_sub == 0) {
         foreach ($item as $follower) {
             $findFollower = pg_query($con, "SELECT * FROM user_t WHERE id='" . $follower . "'");
             $findFollower = pg_fetch_array($findFollower, 0, PGSQL_NUM);
-            $fullname_follower = $findFollower[2] . " " . $findFollower[3];
-            $login_follower = $findFollower[1];
+            $fullname_follower = $findFollower[1] . " " . $findFollower[2];
+            $login_follower = $findFollower[0];
+            $imageSub = $findFollower[4];
             print '<script type="text/javascript">
             var tab=document.getElementsByClassName("list-unstyled follows");
             var li=document.createElement(\'li\');
             li.innerHTML=\'<div class="row"><div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">\' +
-            \'<img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
+            \'<img src="' . $imageSub . '" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
             \'</div><div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto"><h6>' . $login_follower . '<br/><small>' . $fullname_follower . '</small></h6>\' +
             \'</div></div>\';
             var node=document.createTextNode("");
@@ -187,13 +215,14 @@ if ($num_fol == 0) {
         foreach ($item as $follower) {
             $findFollower = pg_query($con, "SELECT * FROM user_t WHERE id='" . $follower . "'");
             $findFollower = pg_fetch_array($findFollower, 0, PGSQL_NUM);
-            $fullname_follower = $findFollower[2] . " " . $findFollower[3];
-            $login_follower = $findFollower[1];
+            $fullname_follower = $findFollower[1] . " " . $findFollower[2];
+            $login_follower = $findFollower[0];
+            $imageFol = $findFollower[4];
             print '<script type="text/javascript">
             var tab1=document.getElementsByClassName("list-unstyled following");
             var li=document.createElement(\'li\');
             li.innerHTML=\'<div class="row"><div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">\' +
-            \'<img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
+            \'<img src="' . $imageFol . '" alt="Circle Image" class="img-circle img-no-padding img-responsive">\' +
             \'</div><div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto"><h6>' . $login_follower . '<br/><small>' . $fullname_follower . '</small></h6>\' +
             \'</div></div>\';
             var node=document.createTextNode("");
@@ -235,11 +264,11 @@ if (!empty($_GET["tweet_retweet"])) {
         "SELECT * FROM tweet WHERE id='$tweet_retweet'");
     $alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
     $alltweets = $alltweets[0];
-    $user_id = $alltweets[1];
+    $user_id = $alltweets[0];
     $findUser = pg_query($con, "SELECT login FROM user_t WHERE id='" . $user_id . "'");
-    $findUser = pg_fetch_array($findUser, 0, PGSQL_NUM);
+    $findUser = pg_fetch_array($findUser);
     $login = $findUser[0];
-    $text = $alltweets[2];
+    $text = $alltweets[1];
     $retweet = pg_query($con, "INSERT into tweet_retweet(tweet_id, user_id) VALUES ('$tweet_retweet','$findLogin')");
     pg_query($con, "INSERT into tweet(author, text) values ('$findLogin','$text')");
 
@@ -247,14 +276,15 @@ if (!empty($_GET["tweet_retweet"])) {
 
 $result = pg_query($con, "SELECT * FROM user_t WHERE login='" . $login_add . "'");
 $arr = pg_fetch_array($result, 0, PGSQL_NUM);
-$user_id = $arr[0];
-$login = $arr[1];
-$fullname = $arr[2] . " " . $arr[3];
-$birth = $arr[5];
+$user_id = $arr[7];
+$login = $arr[0];
+$fullname = $arr[1] . " " . $arr[2];
+$image = $arr[4];
+$birth = $arr[3];
 print '<script type="text/javascript">
-var div=document.getElementsByClassName("owner");
+var div=document.getElementsByClassName("avatar");
 var para = document.createElement("div");
-para.innerHTML=\'<h4 class="title"><strong>' . $fullname . ' </strong></h4><b>@' . $login . '</b><p><i class="fa fa-birthday-cake" aria-hidden="true"></i> Дата рождения  ' . $birth . '</p>\';
+para.innerHTML=\'<img src="' . $image . '"class="img-circle img-no-padding img-responsive"></img><h4 class="title"><strong>' . $fullname . ' </strong></h4><b>@' . $login . '</b><p><i class="fa fa-birthday-cake" aria-hidden="true"></i> Дата рождения  ' . $birth . '</p>\';
 var node = document.createTextNode("");
 para.className="name";
 para.appendChild(node);
@@ -278,7 +308,7 @@ if (!empty($_GET['delete'])) {
 }
 //выводим все его твиты
 $alltweets = pg_query($con,
-    "SELECT tweet.id,name,surname,login,text FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
+    "SELECT tweet.id,name,surname,login,text,photo FROM tweet JOIN user_t ON tweet.author = user_t.id AND author='" . $user_id . "'");
 $arr = [];
 $numrows = pg_num_rows($alltweets);
 if ($numrows != 0) {
@@ -289,11 +319,12 @@ if ($numrows != 0) {
     }
     for ($i = count($arr) - 1; $i >= 0; $i--) {
         $infAboutIwit = explode(",", $arr[$i]);
+        print_r($infAboutIwit);
         $tweet_id = $infAboutIwit[0];
         $fullname = $infAboutIwit[1] . $infAboutIwit[2];
         $nameUser = $infAboutIwit[3];
         $text = $infAboutIwit[4];
-
+        $photo = $infAboutIwit[5];
         $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
         $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
         $count = $count_like['count'];
@@ -304,7 +335,7 @@ if ($numrows != 0) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<div><img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><a href="account.php?delete=' . $tweet_id . '"><i class="fa fa-times"  style="color:gray;float:right;margin-right:40px;margin-top:40px;cursor:pointer" style="flo"aria-hidden="true"></i></a></div><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"  ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
+        divCard.innerHTML=\'<div><img style="margin: 25px 0px 0px 25px"class="img-circle img-no-padding img-responsive"src="' . $photo . '" alt="Card image cap"><a href="account.php?delete=' . $tweet_id . '"><i class="fa fa-times"  style="color:gray;float:right;margin-right:40px;margin-top:40px;cursor:pointer" style="flo"aria-hidden="true"></i></a></div><div class="card-body"><h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm"><i class="fa fa-heart"></i> ' . $count . '</button><button style="margin-left:10px" class="btn btn-danger btn-round btn-sm retweet"  ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_tweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
         divCard.className=\'card\';
     
@@ -317,25 +348,33 @@ if ($numrows != 0) {
     $search_retweet_id = pg_query($con, "SELECT tweet_id,text FROM tweet_retweet JOIN tweet 
                                                 ON tweet_retweet.tweet_id = tweet.id AND user_id='$user_id'");
     $search_retweet_id = pg_fetch_all($search_retweet_id, PGSQL_NUM);
+    //print_r($search_retweet_id);
     if ($search_retweet_id) {
         foreach ($search_retweet_id as $value) {
             $search_id = $value[0];
             $text_bla = $value[1];
+            //print_r($text_bla);
+            //print $text_bla;
             //логин пользователя у которого сперли твит
-            $login_tweeter = pg_query($con, "SELECT login FROM user_t JOIN tweet t on user_t.id = t.author
+            $login_tweeter = pg_query($con, "SELECT login,photo FROM user_t JOIN tweet t on user_t.id = t.author
                                         WHERE t.id='$search_id'");
-            $login_tweeter = pg_fetch_all($login_tweeter, PGSQL_NUM);
-            $login_tweeter = $login_tweeter[0][0];
+            $login_tweeter = pg_fetch_array($login_tweeter);
+
+            $photo = $login_tweeter[0][1];
+            $photo = $login_tweeter['photo'];
+            $login_tweeter = $login_tweeter['login'];
 
             //текст всех твитов пользователя
             $search_all_text = pg_query($con, "SELECT text FROM tweet WHERE author='$user_id'");
             $search_all_text = pg_fetch_all($search_all_text, PGSQL_NUM);
+            //print_r($search_all_text);
+
 
             //айди ретвита у вора
             $search_text_retweet = pg_query($con, "SELECT id FROM tweet WHERE text='$text_bla' AND author='$user_id'");
             $search_text_retweet = pg_fetch_all($search_text_retweet, PGSQL_NUM);
             $search_text_retweet = $search_text_retweet[0][0];
-
+            //print $search_text_retweet;
 
             foreach ($search_all_text as $item) {
                 if ($item[0] === $text_bla) {
@@ -344,13 +383,17 @@ var retweet=document.getElementsByClassName("card");
 for(let i = 0; i < retweet.length; i++) {
     let id_retweet=' . $search_text_retweet . ';
      if(retweet[i].id==id_retweet){
+      retweet[i].getElementsByClassName("card-title")[0].innerText=\'' . $login_tweeter . '\';
         var fa=document.createElement(\'i\');
         fa.className="fa fa-retweet";
         fa.ariahidden="true";
         var node = document.createTextNode("         Вы ретвитнули");
+       var photoUser= retweet[i].getElementsByClassName("img-circle img-no-padding img-responsive")[0];
+   
+        photoUser.src="' . $photo . '";
         retweet[i].firstChild.appendChild(node);
          retweet[i].firstChild.appendChild(fa);
-         retweet[i].getElementsByClassName("card-title")[0].innerText=\'' . $login_tweeter . '\';
+        
       }
   }
 </script>';

@@ -57,12 +57,12 @@ if (!empty($_GET["tweet_id"])) {
 }
 for ($i = count($arr) - 1; $i >= 0; $i--) {
     $infAboutIwit = explode(",", $arr[$i]);
-    $tweet_id = $infAboutIwit[0];
-    $user_id = $infAboutIwit[1];
-    $text = $infAboutIwit[2];
-    $dateCreatetweet = $infAboutIwit[3];
+    $tweet_id = $infAboutIwit[3];
+    $user_id = $infAboutIwit[0];
+    $text = $infAboutIwit[1];
     $fullname = $infAboutIwit[5] . $infAboutIwit[6];
     $login = $infAboutIwit[4];
+    $image=$infAboutIwit[8];
 
     $count_retweet = pg_query($con, "SELECT count(user_id) FROM tweet_retweet WHERE tweet_id='$tweet_id'");
     $count_retweet = pg_fetch_array($count_retweet, null, PGSQL_ASSOC);
@@ -76,7 +76,7 @@ for ($i = count($arr) - 1; $i >= 0; $i--) {
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body">\'+
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="'.$image.'" alt="Card image cap"><div class="card-body">\'+
         \'<h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm like"><i class="fa fa-heart"></i> ' . $count . '</button>\'+
         \'<button type="button" class="btn btn-danger btn-round btn-sm retweet" data-toggle="modal" data-target="#retweetModal"><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_retweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
@@ -92,19 +92,19 @@ for ($i = count($arr) - 1; $i >= 0; $i--) {
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
-                location.href = "http://localhost:63342/ReTwitter/feed.php?tweet_id="+tweet_id;
+                location.href = "http://127.0.0.1:3000/feed.php?tweet_id="+tweet_id;
           };
         }
          for(var j = 0; j < accounts.length; j++) {
           accounts[j].onclick=function(e) {
           let login=e.target.parentNode.parentElement.getElementsByClassName("card-title")[0].innerText;
-                location.href = "http://localhost:63342/ReTwitter/account.php?login="+login;
+                location.href = "http://127.0.0.1:3000/account.php?login="+login;
           };
           
           for(let k = 0; k <retweet.length ; k++) {
             retweet[k].onclick=function(e) {
-                 let tweet_id=e.target.parentNode.parentElement.id;
-                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_retweet="+tweet_id;
+                 let tweet_id=e.target.parentNode.parentElement.id  ;
+                 location.href = "http://127.0.0.1:3000/account.php?tweet_retweet="+tweet_id;
           }
         }
         }

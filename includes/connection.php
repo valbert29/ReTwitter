@@ -9,7 +9,7 @@ $connection_string=("host=//localhost
 port=5432
 dbname=twitter 
 user=postgres 
-password=qepiqooo12Q");
+password=123123123");
 $con = pg_connect($connection_string)
 or die ("cannot connect server ");
 

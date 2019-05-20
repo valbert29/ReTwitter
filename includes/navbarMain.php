@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-danger btn-round">
-                        <i class="fa fa-inbox"></i> <a style="color: white" href="../dialog.php"> Мои сooбщения</a>
+                        <i class="fa fa-inbox"></i> <a style="color: white" href="../list_pm.php"> Мои сooбщения</a>
                     </button>
                 </li>
                 <li class="nav-item">

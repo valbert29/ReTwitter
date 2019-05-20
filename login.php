@@ -57,7 +57,7 @@ if(isset($_GET["login"])){
                 $_SESSION['session_login']=$login;
                 $_SESSION['userid']=$query['id'];
                 /* Перенаправление браузера */
-                header("Location: account.php");
+                header("Location: feed.php");
             }
         } else {
             //  $message = "Invalid login or password!";

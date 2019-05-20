@@ -65,7 +65,7 @@ if ($all_tweets_id_follower) {
     foreach ($all_tweets_id_follower as $alltweet) {
         foreach ($alltweet as $item) {
             $alltweets = pg_query($con,
-                "SELECT * FROM tweet JOIN user_t ON tweet.author = user_t.id AND user_t.id='$item'");
+                "SELECT tweet.id,user_t.id,text,login,name,surname,photo FROM tweet JOIN user_t ON tweet.author = user_t.id AND user_t.id='$item'");
             $alltweets = pg_fetch_all($alltweets, PGSQL_NUM);
             $arr = [];
 
@@ -79,21 +79,22 @@ if ($all_tweets_id_follower) {
                 $user_id = $infAboutIwit[1];
                 $text = $infAboutIwit[2];
 
-                $fullname = $infAboutIwit[5] . $infAboutIwit[6];
-                $login = $infAboutIwit[4];
+                $fullname = $infAboutIwit[4] . $infAboutIwit[5];
+                $login = $infAboutIwit[3];
                 $count_retweet = pg_query($con, "SELECT count(user_id) FROM tweet_retweet WHERE tweet_id='$tweet_id'");
                 $count_retweet = pg_fetch_array($count_retweet, null, PGSQL_ASSOC);
                 $count_retweet = $count_retweet['count'];
                 $count_like = pg_query($con, "SELECT count(user_id) FROM tweet_like WHERE tweet_id='$tweet_id'");
                 $count_like = pg_fetch_array($count_like, null, PGSQL_ASSOC);
                 $count = $count_like['count'];
+                $image=$infAboutIwit[6];
                 print '<script type=\'text/javascript\'>
         var mainDiv=document.getElementsByClassName("list-unstyled follows");
         
         var divCard=document.createElement(\'div\');
         var li=document.createElement(\'li\');
       
-        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="assets/img/faces/joe-gardner-2.jpg" alt="Card image cap"><div class="card-body">\'+
+        divCard.innerHTML=\'<img style="margin: 25px 0px 0px 25px;cursor:pointer"class="img-circle img-no-padding img-responsive"src="'.$image.'" alt="Card image cap"><div class="card-body">\'+
         \'<h4 class="card-title" style="font-weight: bold">' . $login . '</h4><p class="card-text">' . $text . '</p><button class="btn btn-danger btn-round btn-sm like"><i class="fa fa-heart"></i> ' . $count . '</button>\'+
         \'<button type="button" class="btn btn-danger btn-round btn-sm retweet" ><i class="fa fa-retweet" aria-hidden="true"></i>' . $count_retweet . '</button></div>\';
         divCard.id=' . $tweet_id . ';
@@ -109,19 +110,19 @@ if ($all_tweets_id_follower) {
         for(var i = 0; i <like.length ; i++) {
           like[i].onclick=function(e) {
                 let tweet_id=e.target.parentNode.parentElement.id;
-                location.href = "http://localhost:63342/ReTwitter/main.php?tweet_id="+tweet_id;
+                location.href = "http://127.0.0.1:3000/main.php?tweet_id="+tweet_id;
           };
         }
          for(var j = 0; j < accounts.length; j++) {
           accounts[j].onclick=function(e) {
           let login=e.target.parentNode.parentElement.getElementsByClassName("card-title")[0].innerText;
-                location.href = "http://localhost:63342/ReTwitter/account.php?login="+login;
+                location.href = "http://127.0.0.1:3000/account.php?login="+login;
           };
           
           for(let k = 0; k <retweet.length ; k++) {
             retweet[k].onclick=function(e) {
                  let tweet_id=e.target.parentNode.parentElement.id;
-                 location.href = "http://localhost:63342/ReTwitter/account.php?tweet_retweet="+tweet_id;
+                 location.href = "http://127.0.0.1:3000/account.php?tweet_retweet="+tweet_id;
           }
         }
         }
